@@ -10,19 +10,23 @@
 </head>
 <body>
     <header>Library</header>
-    <div class="add-section">
-        <input type="text" name="title" id="title" pattern="[a-zA-Z]+" required>
-        <input type="text" name="author" id="author" pattern="[a-zA-Z]+" required>
+    <form id="add-form">
+        <label for="title">Book Title</label>
+        <input type="text" name="title" id="title" pattern="[a-zA-Z0-9 ]+" required>
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" pattern="[a-zA-Z ]+" required>
+        <label for="pages">Number of pages</label>
         <input type="number" name="pages" id="pages" pattern="[0-9]+" required>
+        <label for="status">Read</label>
         <input type="checkbox" name="status" id="status">
-        <button type="submit" id="add-book-btn">Add book</button>
-    </div>
+        <button type="submit" value="Submit" id="add-btn">Add book</button>
+    </form>
 
     <table class="library">
         <th>Title</th>
         <th>Author</th>
         <th>Pages</th>
-        <th>Status</th>
+        <th>Read</th>
         <th></th>
     </table>
 </body>
