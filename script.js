@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-classes-per-file
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookPages = document.querySelector('#pages');
