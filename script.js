@@ -1,3 +1,6 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-classes-per-file */
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookPages = document.querySelector('#pages');
@@ -86,6 +89,41 @@ function changeStatus(checkbox) {
   const bookToChange = library.books.find((obj) => obj.title === title);
   bookToChange.isRead = checkbox.checked;
 }
+function checkBooksList(searchTerm) {
+  for (let i = 0; i < library.books.length; i++) {
+    if (library.books[i].title.includes(searchTerm)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+bookTitle.addEventListener('input', (event) => {
+  if (!(bookTitle.validity.valid)) {
+    bookTitle.setCustomValidity('Please enter a valid book title. Letters and numbers are accepted');
+  }
+  if (checkBooksList(bookTitle.value)) {
+    bookTitle.setCustomValidity('This book is added already');
+  } else {
+    bookTitle.setCustomValidity('');
+  }
+});
+
+bookAuthor.addEventListener('input', (event) => {
+  if (!(bookAuthor.validity.valid)) {
+    bookAuthor.setCustomValidity('Please enter a valid author name, field should contain only letters');
+  } else {
+    bookAuthor.setCustomValidity('');
+  }
+});
+
+bookPages.addEventListener('input', (event) => {
+  if (Number(bookPages.value) <= 0) {
+    bookPages.setCustomValidity('Please enter a number greater than zero');
+  } else {
+    bookPages.setCustomValidity('');
+  }
+});
 
 window.onload = () => {
   const firstBook = new Book('12 Rules for Life', 'Jordan Peterson', 409, false);

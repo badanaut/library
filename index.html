@@ -13,10 +13,13 @@
     <form id="add-form">
         <label for="title">Book Title</label>
         <input type="text" name="title" id="title" pattern="[a-zA-Z0-9 ]+" required>
+        <div id="book-title-error"></div>
         <label for="author">Author</label>
         <input type="text" name="author" id="author" pattern="[a-zA-Z ]+" required>
+        <div id="author-name-error"></div>
         <label for="pages">Number of pages</label>
         <input type="number" name="pages" id="pages" pattern="[0-9]+" required>
+        <div id="number-error"></div>
         <label for="status">Read</label>
         <input type="checkbox" name="status" id="status">
         <button type="submit" value="Submit" id="add-btn">Add book</button>
